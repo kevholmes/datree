@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: setup python
         uses: actions/setup-python@v2
-      - name: tell us what data is available to our job
-        run: jq --raw-output . "$GITHUB_EVENT_PATH"
-#      - name: check commit messages
-#        run: python ./scripts/check_commit_messages.py
+#      - name: tell us what data is available to our job
+#        run: jq --raw-output . "$GITHUB_EVENT_PATH"
+      - name: check commit messages
+        run: python ./scripts/check_commit_messages.py
