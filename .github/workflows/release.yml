@@ -60,13 +60,13 @@ jobs:
 #              "https://api.travis-ci.com/repo/${GH_ORGANIZATION_NAME}%2F${GH_REPOSITORY_NAME}/requests"
 
   release-docker:
+    needs: release
+    runs-on: ubuntu-latest
     env:
       REPO_NAME: datree
       IMAGE_NAME: datree
       COMMIT_SHA: ${{ github.sha }}
     name: Release container image to public registries
-    needs: release
-    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: docker/setup-buildx-action@v1
@@ -91,9 +91,9 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
-          ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
-          ghcr.io/${{ REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
-          ghcr.io/${{ REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
+          ${{ REPO_NAME }}/${{ IMAGE_NAME }}:latest
+          ${{ REPO_NAME }}/${{ IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
+          ghcr.io/${{ REPO_NAME }}/${{ IMAGE_NAME }}:latest
+          ghcr.io/${{ REPO_NAME }}/${{ IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
         cache-from: type=gha
         cache-to: type=gha
