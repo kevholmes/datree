@@ -63,7 +63,7 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     env:
-      REPO_NAME: datree
+      REPO_NAME: kholmescarmalink
       IMAGE_NAME: datree
       COMMIT_SHA: ${{ github.sha }}
     name: Release container image to public registries
