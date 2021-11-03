@@ -93,7 +93,7 @@ jobs:
         tags: |-
           ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
           ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
-          ghcr.io/${{ REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
-          ghcr.io/${{ REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
+          ghcr.io/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
+          ghcr.io/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
         cache-from: type=gha
         cache-to: type=gha
