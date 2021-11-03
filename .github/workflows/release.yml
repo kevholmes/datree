@@ -90,10 +90,10 @@ jobs:
         context: .
         platforms: linux/amd64
         push: true
-        tags: |
-          ${{ REPO_NAME }}/${{ IMAGE_NAME }}:latest
-          ${{ REPO_NAME }}/${{ IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
-          ghcr.io/${{ REPO_NAME }}/${{ IMAGE_NAME }}:latest
-          ghcr.io/${{ REPO_NAME }}/${{ IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
+        tags: |-
+          ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
+          ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
+          ghcr.io/${{ REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
+          ghcr.io/${{ REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.release_candidate_version }}
         cache-from: type=gha
         cache-to: type=gha
