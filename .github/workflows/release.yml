@@ -64,7 +64,7 @@ jobs:
 
   release-docker:
     env:
-      REPO_NAME: datree
+      REPO_NAME: kholmescarmalink
       IMAGE_NAME: datree
     name: Release container image to public registries
     needs: [release, define_version_job]
